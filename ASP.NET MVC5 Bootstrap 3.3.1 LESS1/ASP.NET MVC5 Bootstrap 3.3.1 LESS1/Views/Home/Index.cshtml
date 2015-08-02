@@ -1,0 +1,55 @@
+﻿@model NET_MVC5_Bootstrap3_3_1_LESS.Models.TextAnalysis
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    html, body, .container {
+        height: 100%;
+    }
+
+    textarea.form-control {
+        height: 500px;
+        width: 400px;
+        max-width: 100%;
+    }
+    .text {
+        font-size: 14px !important;
+        line-height: 16px;
+    }
+</style>
+@using (Html.BeginForm("Analysis", "Home"))
+{
+    <div class="jumbotron">
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.TextAreaFor(n => n.Text, new
+                {
+                    @class = "form-control",
+                    @placeholder = "Введіть текст для аналізу..",
+                })
+                <p style="margin: 10px 0">
+                    <button type="submit">Підрахувати частоту &raquo;</button>
+                </p>
+            </div>
+            <div class="col-md-6">
+                @if (Model.Counts != null)
+                {
+                    <p class="text">
+                        @foreach (var w in Model.Counts)
+                        {
+                            <span style="display: inline-block; width: 150px;">
+                                @w.Key : @w.Value
+                            </span>
+                        }
+                    </p>
+
+                }
+            </div>
+            
+        </div>
+
+
+    </div>
+}
