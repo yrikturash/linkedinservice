@@ -18,38 +18,5 @@
         line-height: 16px;
     }
 </style>
-@using (Html.BeginForm("Analysis", "Home"))
-{
-    <div class="jumbotron">
 
-        <div class="row">
-            <div class="col-md-6">
-                @Html.TextAreaFor(n => n.Text, new
-                {
-                    @class = "form-control",
-                    @placeholder = "Введіть текст для аналізу..",
-                })
-                <p style="margin: 10px 0">
-                    <button type="submit">Підрахувати частоту &raquo;</button>
-                </p>
-            </div>
-            <div class="col-md-6">
-                @if (Model.Counts != null)
-                {
-                    <p class="text">
-                        @foreach (var w in Model.Counts)
-                        {
-                            <span style="display: inline-block; width: 150px;">
-                                @w.Key : @w.Value
-                            </span>
-                        }
-                    </p>
-
-                }
-            </div>
-            
-        </div>
-
-
-    </div>
-}
+<a href="Linkedin/Index">Linkedin</a>
